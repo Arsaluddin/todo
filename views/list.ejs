@@ -11,13 +11,18 @@
 
     <ul>
        <% for(var i=0;i<newlistitem.length;i++){ %>
-        <li> <%= newlistitem[i] %> </li>
+        <li> 
+      <form action="/delete" method="post"> 
+         <input type="checkbox" name="checkbox" value="<%= newlistitem[i]._id %>" onchange="this.form.submit()">
+        <%= newlistitem[i].name %>
+            </form>
+         </li>
        <% } %>
     </ul>
 
     <form action="/" method="post">
-        <input type="text" name="inputitems" placeholder="add items">
-        <button type="submit" name="button"> Add</button>
+        <input type="text" name="inputitems" placeholder="add items" autocomplete="off">
+        <button type="submit" name="button">➕</button>
     </form>
 </body>
 </html>
